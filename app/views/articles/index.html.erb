@@ -24,6 +24,7 @@
     <td>
       <%= link_to "Editar", edit_article_path(article.id) %>
       <%= link_to "Ver", article_path(article.id) %>
+      <%= link_to "Eliminar", article_path(article.id), method: :delete, data: {confirm: "Estas seguro de eliminar el \##{article.id} ?"} %>
     </td>
   </tr> 
 <% end %>
