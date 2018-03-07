@@ -1,1 +1,30 @@
-Hola
+<h1>Este es el listado de los artículos</h1>
+
+<p>
+  <%= link_to "Nuevo artículo", new_article_path %>
+</p>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Titulo</th>
+    <th>Descipción</th>
+    <th>to do</th>
+  </tr>
+<% @articles.each do |article, value| %>
+  <tr>
+    <td>
+      <%= article.id %>
+    </td>
+    <td>
+      <%= article.title %>
+    </td>
+    <td>
+      <%= article.description %>
+    </td>
+    <td>
+      <%= link_to "Editar", edit_article_path(article.id) %>
+      <%= link_to "Ver", article_path(article.id) %>
+    </td>
+  </tr> 
+<% end %>
+</table>
