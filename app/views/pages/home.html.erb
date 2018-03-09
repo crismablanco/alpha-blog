@@ -1,7 +1,21 @@
-<h1>Estamos en el HOME</h1>
-
-<%= link_to image_tag('avatar.png'), 'http://www.qubikdigital.com/'  %>
+<div class="center jumbotron">
+  <div class="row">
+    <div class="col-md-8">
+      <span class="align-middle">
+        <h1 class="display-4">Welcome to Alpha Blog</h1>
+        <p class="lead">This is a blog web app, made by <%= link_to "crismablanco", "http://crismablanco.com", class: "no-underline", target: "_blank" %>. It is a practice with Ruby on Rails</p>
+      </span>
+    </div>
+    <div class="col-md-4">
+      <%= link_to image_tag('avatar.png'), 'http://www.qubikdigital.com/'  %>
+    </div>
+  </div>
+  <hr class="my-4">
+    <p>You can sing in to participate with some blog content.</p>
+    <p>
+      <%= link_to 'Sign in', "#", class: "btn btn-info btn-lg btn-xlarge", role: "button"  %>
+    </p>
+</div>
 
 <br><br>
 
-<%= link_to 'Alpha Blog', articles_path  %> | <%= link_to 'ABOUT', about_path  %>
