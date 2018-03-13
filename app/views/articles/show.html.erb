@@ -1,12 +1,26 @@
-<h1>Mostrando el artículo #<%= @article.id %></h1>
-
-<p>
-  Title: <%= @article.title %>
-</p>
-
-<p>
-  Description: <%= @article.description %>
-</p>
-
-<%= link_to "Editar este artículo", edit_article_path(@article) %> | 
-<%= link_to "Volver a la lista de artículos", articles_path %>
+</br>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+      
+    
+    <div class="card">
+      <div class="card-header">
+        <h5>#<%= @article.id %> - Title: <%= @article.title %></h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= @article.description %></p>
+        
+        <div align="right" class="article-footer-actions col-md-8 offset-md-4">
+          <%= link_to "Edit", edit_article_path(@article), class: "btn btn-primary btn-sm" %>
+          <%= link_to "Delete", article_path(@article), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: "You will delete the article \##{@article.id}, are you sure ?"} %>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  </div>
+  </br>
+  
+  <div class="col-md-4 offset-md-4">
+    [ <%= link_to "Cancel request and return to article list", articles_path %> ]
+  </div>

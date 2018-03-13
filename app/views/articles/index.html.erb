@@ -1,31 +1,25 @@
-<h1>Este es el listado de los artículos</h1>
+<h1 align="center">List of articles</h1>
 
-<p>
-  <%= link_to "Nuevo artículo", new_article_path %>
-</p>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Titulo</th>
-    <th>Descipción</th>
-    <th>to do</th>
-  </tr>
 <% @articles.each do |article, value| %>
-  <tr>
-    <td>
-      <%= article.id %>
-    </td>
-    <td>
-      <%= article.title %>
-    </td>
-    <td>
-      <%= article.description %>
-    </td>
-    <td>
-      <%= link_to "Editar", edit_article_path(article.id) %>
-      <%= link_to "Ver", article_path(article.id) %>
-      <%= link_to "Eliminar", article_path(article.id), method: :delete, data: {confirm: "Estas seguro de eliminar el \##{article.id} ?"} %>
-    </td>
-  </tr> 
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      
+    
+    <div class="card">
+      <div class="card-header">
+        <h5><%= link_to article.title, article_path(article) %></h5>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= truncate(article.description, length: 100) %></p>
+        
+        <div align="right" class="article-footer-actions col-md-8 offset-md-4">
+          <%= link_to "Edit", edit_article_path(article), class: "btn btn-primary btn-sm" %>
+          <%= link_to "Delete", article_path(article), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: "Estas seguro de eliminar el \##{article.id} ?"} %>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  </div>
+  </br>
 <% end %>
-</table>

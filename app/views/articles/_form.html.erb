@@ -1,35 +1,32 @@
+<%= render 'shared/errors', obj: @article %>
 
-<% if @article.errors.any? %>
-  <h2>Ocurrieron los siguientes errores, no se pudo guardar</h2>
-  <ul>
-  <% @article.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-  </ul>
-<% end %>
-  
-<%= form_for @article do |f| %>
-  <div class="form-group row">
-    <%= f.label :title, class:"col-sm-2 col-form-label", for: "title" %>
-    <div class="col-sm-8">
-      <%= f.text_field :title, class: "form-control", placeholder: "e-mail" %>  
-    </div>
+<div class="row">
+  <div class="col-md-12"> 
+    <%= form_for @article do |f| %>
+      <div class="form-group row">
+        <%= f.label :title, class:"col-md-2 col-form-label" %>
+        <div class="col-md-8">
+          <%= f.text_field :title, class: "form-control", placeholder: "Title" %>  
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <%= f.label :description,  class:"col-md-2 col-form-label" %> </br>
+        <div class="col-md-8">
+          <%= f.text_area :description, class: "form-control", rows: "10", placeholder: "Body of the article" %>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <div class="offset-md-2 col-md-8">
+          <%= f.submit class: "btn btn-primary btn-lg" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-  
-  <div class="form-group row">
-    <%= f.label :description,  class:"col-sm-2 col-form-label", for: "description" %> </br>
-    <div class="col-sm-8">
-      <%= f.text_area :description, class: "form-control", rows: "10", placeholder: "Body of the article" %>
-    </div>
-  </div>
-  
-  <div class="form-group">
-    <div class="offset-md-2 col-sm-8 col">
-      <%= f.submit class: "btn btn-primary btn-lg" %>
-    </div>
-  </div>
-<% end %>
 
-<div class="col-md-4 offset-md-4">
-  [ <%= link_to "Cancel request and return to article list", articles_path %> ]
+  <div class="col-md-4 offset-md-4">
+    [ <%= link_to "Cancel request and return to article list", articles_path %> ]
+  </div>
+
 </div>
