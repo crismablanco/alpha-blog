@@ -50,10 +50,17 @@ $navbar-default-bg: black;
   background-color: black;
 }
 
+.article-meta-detail {
+  text-align: right;
+  margin-top: 15px;
+  padding-bottom: 15px;
+  border-top: 1px solid #eaeaea;
+}
+
 .article-footer-actions{
   padding-top: 15px;
   padding-bottom: 15px;
-  border-top: 1px solid #eaeaea;
+  //border-top: 1px solid #eaeaea;
 }
 
 footer {
