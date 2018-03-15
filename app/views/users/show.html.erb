@@ -1,0 +1,19 @@
+</br>
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h5>#<%= @user.id %> - <%= @user.username %></h5>
+    <%= gravatar_for(@user, size: 150) %>
+    </br></br></br>
+    <h5>The <%= @user.username %>'s articles:</h5>
+    </br>
+  </div>
+</div>
+
+
+<%= render 'articles/article', obj: @user.articles %>
+</br>
+
+<div class="col-md-4 offset-md-4">
+  [ <%= link_to "Cancel request and return to article list", articles_path %> ]
+</div>
