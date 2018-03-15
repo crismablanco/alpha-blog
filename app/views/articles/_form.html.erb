@@ -13,10 +13,10 @@
       <div class="form-group row">
         <%= f.label :description,  class:"col-md-2 col-form-label" %> </br>
         <div class="col-md-8">
-          <%= f.text_area :description, class: "form-control", rows: "10", placeholder: "Body of the article" %>
+          <%= f.cktext_area :description, class: "form-control", ckeditor: { language: 'es'}, rows: "10", placeholder: "Body of the article" %>
         </div>
       </div>
-      
+  
       <div class="form-group row">
         <div class="offset-md-2 col-md-8">
           <%= f.submit class: "btn btn-primary btn-lg" %>

@@ -8,10 +8,10 @@
         <h5><%= link_to article.title, article_path(article) %></h5>
       </div>
       <div class="card-body">
-        <p class="card-text"><%= truncate(article.description, length: 100) %></p>
+        <p class="card-text"><%= truncate_html(article.description) %></p>
         <div class="article-meta-detail">
           <small>
-            Created by <em><%= article.user.username if article.user %></em>, 
+            Created<%= " by <em><a href='#{user_path(article.user)}'>#{article.user.username}</a></em>, ".html_safe if article.user %>
               <%= time_ago_in_words(article.created_at) %> ago. Last update <%= time_ago_in_words(article.updated_at) %> ago.
           </small>
         </div>

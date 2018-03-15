@@ -17,6 +17,9 @@ gem 'puma', '~> 3.7'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0'
+# wysiwyg
+gem 'ckeditor'
+gem 'truncate_html'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
