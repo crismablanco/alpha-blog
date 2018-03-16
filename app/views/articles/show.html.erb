@@ -9,7 +9,13 @@
       </div>
       <div class="card-body">
         <p class="card-text"><%= @article.description.html_safe %></p>
-        <% if logged_in? && current_user == @article.user %>
+        <div class="article-meta-detail">
+          <small>
+            Created<%= " by <em><a href='#{user_path(@article.user)}'>#{@article.user.username}</a></em>, ".html_safe if @article.user %>
+              <%= time_ago_in_words(@article.created_at) %> ago. Last update <%= time_ago_in_words(@article.updated_at) %> ago.
+          </small>
+        </div>
+        <% if logged_in? && (current_user == @article.user || current_user.admin?)  %>
           <div align="right" class="article-footer-actions col-md-8 offset-md-4">
             <%= link_to "Edit", edit_article_path(@article), class: "btn btn-primary btn-sm" %>
             <%= link_to "Delete", article_path(@article), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: "You will delete the article \##{@article.id}, are you sure ?"} %>
