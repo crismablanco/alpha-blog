@@ -16,10 +16,11 @@
                 Created <%= time_ago_in_words(user.created_at) %> ago. Last update <%= time_ago_in_words(user.updated_at) %> ago.
             </small>
           </div>
-          <div align="right" class="user-footer-actions col-md-8 offset-md-4">
-            <%= link_to "Edit", edit_user_path(user), class: "btn btn-primary btn-sm" %>
-            <%= link_to "Delete", user_path(user), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: "Estas seguro de eliminar el \##{user.id} ?"} %>
-          </div>
+          <% if logged_in? && current_user == user %>
+            <div align="right" class="user-footer-actions col-md-8 offset-md-4">
+              <%= link_to "Edit", edit_user_path(user), class: "btn btn-primary btn-sm" %>
+            </div>
+          <% end %>
         </li>
       </ul>
     </div>

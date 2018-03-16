@@ -12,10 +12,11 @@
   </div>
 </div>
 
-
-<%= render 'articles/article', obj: @user.articles %>
+<%= will_paginate @user_articles %>
+<%= render 'articles/article', obj: @user_articles %>
+<%= will_paginate @user_articles %>
 </br>
 
 <div class="col-md-4 offset-md-4">
-  [ <%= link_to "Cancel request and return to users list", users_path %> ]
+  [ <%= link_to "Cancel request and return to articles list", articles_path %> ]
 </div>

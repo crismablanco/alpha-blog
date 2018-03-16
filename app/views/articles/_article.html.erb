@@ -15,10 +15,12 @@
               <%= time_ago_in_words(article.created_at) %> ago. Last update <%= time_ago_in_words(article.updated_at) %> ago.
           </small>
         </div>
-        <div align="right" class="article-footer-actions col-md-8 offset-md-4">
-          <%= link_to "Edit", edit_article_path(article), class: "btn btn-primary btn-sm" %>
-          <%= link_to "Delete", article_path(article), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: "Estas seguro de eliminar el \##{article.id} ?"} %>
-        </div>
+        <% if logged_in? && current_user == article.user %>
+          <div align="right" class="article-footer-actions col-md-8 offset-md-4">
+            <%= link_to "Edit", edit_article_path(article), class: "btn btn-primary btn-sm" %>
+            <%= link_to "Delete", article_path(article), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: "Estas seguro de eliminar el \##{article.id} ?"} %>
+          </div>
+        <% end %>
       </div>
     </div>
     

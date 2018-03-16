@@ -17,6 +17,9 @@ gem 'puma', '~> 3.7'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0'
+# paginator
+gem 'will_paginate', '3.1.5'
+gem 'will_paginate-bootstrap4'
 # wysiwyg
 gem 'ckeditor'
 gem 'truncate_html'
