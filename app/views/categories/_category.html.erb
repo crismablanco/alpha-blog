@@ -1,0 +1,33 @@
+<% obj.each do |category, value| %>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h5><%= link_to category.name, category_path(category) %></h5>
+            </div>
+          </div>
+          <div class="user-meta-detail">
+            <small>
+                <% #pluralize(category.articles.count, "article") if category.articles %>
+                </br>
+                Created <%= time_ago_in_words(category.created_at) %> ago. Last update <%= time_ago_in_words(category.updated_at) %> ago.
+            </small>
+          </div>
+          <% if logged_in? %>
+            <div align="right" class="user-footer-actions col-md-8 offset-md-4">
+              <%= link_to "Edit", edit_category_path(category), class: "btn btn-primary btn-sm" %>
+            </div>
+          <% end %>
+          <% if logged_in? and current_user.admin? %>
+            <div align="right" class="user-footer-actions col-md-8 offset-md-4">
+            <%= link_to "Delete this category", category_path(category), method: :delete, class: "btn btn-danger btn-sm",
+                    data: { confirm: "Are you sure you want to delete the category and all their articles?" } %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </br>
+<% end %>
